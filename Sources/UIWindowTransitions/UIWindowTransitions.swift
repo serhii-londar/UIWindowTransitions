@@ -83,6 +83,7 @@ public extension UIWindow {
 		public enum Background {
 			case solidColor(_: UIColor)
 			case customView(_: UIView)
+            case customViewController(_: UIViewController)
 		}
 		
 		/// Duration of the animation (default is 0.20s)
@@ -134,6 +135,8 @@ public extension UIWindow {
 				transitionWnd?.rootViewController = UIViewController.newController(withView: view, frame: transitionWnd!.bounds)
 			case .solidColor(let color):
 				transitionWnd?.backgroundColor = color
+            case .customViewController(let vc):
+                transitionWnd?.rootViewController = vc
 			}
 			transitionWnd?.makeKeyAndVisible()
 		}

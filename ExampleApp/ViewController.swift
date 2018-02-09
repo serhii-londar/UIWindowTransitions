@@ -36,8 +36,10 @@ class ViewController: UIViewController {
 
 		let u = UIStoryboard(name: "Main", bundle: Bundle.main)
 		let vc = u.instantiateViewController(withIdentifier: "Navigation") as! UINavigationController
+        let background = u.instantiateViewController(withIdentifier: "Background")
 		
 		var options = UIWindow.TransitionOptions()
+        options.background = .customViewController(background)
 		switch sender.tag {
 		case 0:
 			options.direction = .toRight
